@@ -1,0 +1,55 @@
+@startuml mascota
+
+package Emociones{
+    class Tristeza
+    class Enojo
+    class Felicidad
+}
+
+
+class Mascota{
+    - salud : int 
+    - higiene : int
+    - emocion : char
+    + Comer() 
+    + Dormir()
+    + Jugar()
+}
+
+class Higiene
+class Vestirse
+class Emocion
+class Enojo
+class Felicidad
+class Tristeza
+
+class Alimento
+class Ropa
+class Juguetes
+class Limpieza
+
+Mascota "1" *-- "1" Salud
+Mascota "1" *-- "1" Comer
+Mascota "1" *-- "1" Jugar
+Mascota "1" *-- "1" Dormir
+Mascota "1" *-- "1" Higiene
+Mascota "1" *-- "1" Vestirse
+
+Vestirse  -|>  Limpieza
+Salud "1" *-- "1" Higiene 
+Higiene "1" *-- "1" Limpieza
+
+Comer "1" o-- "1..*" Alimento
+Vestirse "1" o-- "1..*" Ropa
+Jugar "1" o-- "1,*" Juguetes
+Higiene "1" o-- "1" Limpieza
+
+Mascota "1" *-- "3" Emocion
+Tristeza  -|>  Emocion
+Felicidad  -|> Emocion
+Dormir "1" o-- Enojo
+Comer "1" o-- Felicidad
+Jugar "1" o-- Tristeza
+Enojo  -|>  Emocion
+
+@enduml
