@@ -3,10 +3,16 @@ using namespace std;
 
 #include <Mascota.hpp>
 #include <Alimento.hpp>
+#include <Dibujo.hpp>
 
 int main(int argc, char const *argv[])
 {
-    /* code */
+    Dibujo dibujo1("./asets/amaranto.txt");
+    dibujo1.Dibujar();
+
+    Dibujo dibujo3("./asets/cat.txt");
+    dibujo3.Dibujar();
+
     Mascota m1;
     Mascota m2;
     Mascota m3;
